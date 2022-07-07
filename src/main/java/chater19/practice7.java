@@ -11,19 +11,33 @@ public class practice7 {
         // 출력 : 사람이 초기화 됩니다.
     }
 }
-class 동물2 {
+class  동물2{
     동물2(){
         init();
     }
-    void init() {
-        System.out.println("동물이 초기화 됩니다.");
-    }
+
+    void init(){}
 }
 
-class 사람4 extends 동물2 {
+class 사람4 extends 동물2{
     @Override
     void init() {
-        super.init();
         System.out.println("사람이 초기화 됩니다.");
     }
 }
+//class 동물2 {
+//    동물2(){
+//        init();
+//    }
+//    void init() {
+//        System.out.println("동물이 초기화 됩니다.");
+//    }
+//}
+//
+//class 사람4 extends 동물2 {
+//    @Override
+//    void init() {
+//        super.init();
+//        System.out.println("사람이 초기화 됩니다.");
+//    }
+//}
