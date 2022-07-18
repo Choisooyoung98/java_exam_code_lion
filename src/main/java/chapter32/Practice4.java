@@ -18,7 +18,7 @@ public class Practice4 {
         System.out.print("숫자의 개수 : ");
         int input = sc.nextInt();
         int j;
-        double z;
+        float z;
         arrayList = new ArrayList4(input);
         for (int i = 0; i < input; i++){
             System.out.print("정수 "+ input +"개를 입력해주세요 : ");
@@ -32,20 +32,23 @@ public class Practice4 {
         System.out.println("정수 총 합은 : " + sum);
 
 
-        ArrayList4<Double> douvleArrayList;
+        ArrayList4<Float> douvleArrayList;
         System.out.print("숫자의 개수 : ");
         int doubleInput = sc.nextInt();
         douvleArrayList = new ArrayList4(doubleInput);
+        float doubleSum = 0;
         for (int i = 0; i < doubleInput; i++){
             System.out.print("실수 "+ doubleInput +"개를 입력해주세요 : ");
-            z = sc.nextDouble();
-            douvleArrayList.add(z);
+            z = sc.nextFloat();
+            doubleSum = doubleSum + z;
+            //douvleArrayList.add(z);
+
         }
-        double doubleSum = 0;
-        for (int i = 0; i < douvleArrayList.size(); i++){
-            doubleSum += douvleArrayList.get(i);
-        }
-        System.out.println("정수 총 합은 : " + doubleSum);
+
+//        for (int i = 0; i < douvleArrayList.size(); i++){
+//            doubleSum += douvleArrayList.get(i);
+//        }
+        System.out.println("정수 총 합은 : " + doubleSum.floatValue());
     }
 }
 class ArrayList4<T> {
