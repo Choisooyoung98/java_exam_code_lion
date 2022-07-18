@@ -82,6 +82,7 @@ class HashMap4<K, V> {
             }
             size--;
         }
+        return;
     }
     public List<K> keySet() {
         List<K> keySet = new ArrayList<>();
