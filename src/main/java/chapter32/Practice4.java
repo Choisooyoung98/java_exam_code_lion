@@ -14,24 +14,87 @@ public class Practice4 {
  // Scanner 클래스를 불러온다.
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList4 arrayList = new ArrayList4();
+        ArrayList4<Integer> arrayList;
         System.out.print("숫자의 개수 : ");
         int input = sc.nextInt();
-
+        int j;
+        double z;
+        arrayList = new ArrayList4(input);
         for (int i = 0; i < input; i++){
-            //arrayList.add(i) = sc.nextInt();
+            System.out.print("정수 "+ input +"개를 입력해주세요 : ");
+            j = sc.nextInt();
+            arrayList.add(j);
         }
+        int sum = 0;
+        for (int i = 0; i < arrayList.size(); i++){
+            sum += arrayList.get(i);
+        }
+        System.out.println("정수 총 합은 : " + sum);
+
+
+        ArrayList4<Double> douvleArrayList;
+        System.out.print("숫자의 개수 : ");
+        int doubleInput = sc.nextInt();
+        douvleArrayList = new ArrayList4(doubleInput);
+        for (int i = 0; i < doubleInput; i++){
+            System.out.print("실수 "+ doubleInput +"개를 입력해주세요 : ");
+            z = sc.nextDouble();
+            douvleArrayList.add(z);
+        }
+        double doubleSum = 0;
+        for (int i = 0; i < douvleArrayList.size(); i++){
+            doubleSum += douvleArrayList.get(i);
+        }
+        System.out.println("정수 총 합은 : " + doubleSum);
     }
 }
-class ArrayList4 {
-    int[] list;
+class ArrayList4<T> {
+    Object[] list;
     int lastIndex;
-    ArrayList4() {
-        list = new int[3];
+    ArrayList4(int index) {
+        list = new Object[index];
         lastIndex = -1;
     }
-    void add(int index) {
-
+    int size() {
+        return lastIndex + 1;
+    }
+    void add(T data) {
+        lastIndex++;
+        sizeUpIfFull();
+        list[lastIndex] = data;
+    }
+    T get(int index) {
+        return (T) list[index];
+    }
+    void sizeUpIfFull() {
+        if(ifFull()) {
+            sizeUp();
+        }
+    }
+    boolean ifFull() {
+        if(lastIndex == list.length) return true;
+        return false;
+    }
+    void sizeUp() {
+        Object[] newList = new Object[list.length * 2];
+        for (int i = 0; i < list.length; i++){
+            newList[i] = list[i];
+        }
+        list = newList;
+    }
+    void removeAt(int index) {
+        for (int i = index; i < lastIndex; i++){
+            list[index] = list[index+1];
+        }
+        lastIndex--;
+    }
+    void add(T data, int index){
+        ++lastIndex;
+        sizeUpIfFull();
+        for (int i = lastIndex+1; i >= index; i--){
+            list[i] = list[i-1];
+        }
+        list[index] = data;
     }
 
 }
