@@ -1,0 +1,104 @@
+package chapter33;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class Practice4Test {
+    @Test
+    void HashMap_클래스_존재한다() {
+        HashMap4 map = new HashMap4();
+    }
+    @Test
+    void 제너릭이_가능하다() {
+        HashMap4<String, Integer> map = new HashMap4<>();
+    }
+    @Test
+    void put() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+    }
+    @Test
+    void get() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+        int age = ages.get("철수");
+
+        assertEquals(22, age);
+    }
+    @Test
+    void _2nd_get() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+        ages.put("영희", 25);
+        assertEquals(22, ages.get("철수"));
+        assertEquals(25, ages.get("영희"));
+    }
+
+    @Test
+    void put__데이터_수정() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+        ages.put("영희", 25);
+        ages.put("영희", 27);
+
+        assertEquals(27, ages.get("영희"));
+    }
+
+    @Test
+    void remove() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+        assertEquals(1, ages.size());
+
+        ages.put("영희", 25);
+        assertEquals(2, ages.size());
+
+        ages.remove("영희");
+
+        assertEquals(1, ages.size());
+
+        ages.remove("철수");
+        assertEquals(0, ages.size());
+    }
+
+    @Test
+    void keySet() {
+        HashMap4<String, Integer> ages = new HashMap4<>();
+        ages.put("철수", 22);
+        ages.put("영희", 25);
+
+        List<String> keySet = ages.keySet();
+        assertEquals("철수", keySet.get(0));
+        assertEquals("영희", keySet.get(1));
+    }
+    @Test
+    void 원숭이_맵() {
+        HashMap4<String, 원숭이> monkeys = new HashMap4<>();
+
+        원숭이 a원숭이_키키 = new 원숭이("키키");
+        원숭이 a원숭이_코코 = new 원숭이("코코");
+
+        monkeys.put("키키", a원숭이_키키);
+        monkeys.put("코코", a원숭이_코코);
+
+        assertEquals(monkeys.get("키키"), a원숭이_키키);
+        assertEquals(monkeys.get("코코"), a원숭이_코코);
+    }
+    @Test
+    void 다양한_종류의_객체들의_맵() {
+        HashMap4<String, Object> monkeys = new HashMap4<>();
+
+        monkeys.put("원숭이_키키", new 원숭이("키키"));
+        monkeys.put("사람_존", new 사람("존"));
+
+        원숭이 a원숭이_키키 = (원숭이) monkeys.get("원숭이_키키");
+        사람 a사람_존 = (사람) monkeys.get("사람_존");
+
+        a원숭이_키키.묘기를_부리다();
+        a사람_존.말하다();
+    }
+
+}
