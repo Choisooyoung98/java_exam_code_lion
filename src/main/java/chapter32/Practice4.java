@@ -40,15 +40,15 @@ public class Practice4 {
         for (int i = 0; i < doubleInput; i++){
             System.out.print("실수 "+ doubleInput +"개를 입력해주세요 : ");
             z = sc.nextFloat();
-            doubleSum = doubleSum + z;
-            //douvleArrayList.add(z);
+            douvleArrayList.add(z);
 
         }
 
-//        for (int i = 0; i < douvleArrayList.size(); i++){
-//            doubleSum += douvleArrayList.get(i);
-//        }
-        System.out.println("정수 총 합은 : " + doubleSum.floatValue());
+        for (int i = 0; i < douvleArrayList.size(); i++){
+            doubleSum += douvleArrayList.get(i);
+        }
+        String.format("%.2f", doubleSum);
+        System.out.println("정수 총 합은 : " + doubleSum);
     }
 }
 class ArrayList4<T> {
